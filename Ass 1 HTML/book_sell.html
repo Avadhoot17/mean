@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px;
+        }
+        .book-list, .order-form {
+            margin-bottom: 20px;
+        }
+        .book-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .book-item img {
+            max-width: 100px;
+            margin-right: 10px;
+        }
+        .book-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .book-item p {
+            margin: 5px 0;
+        }
+        .book-details {
+            display: none;
+            margin-top: 20px;
+        }
+        .book-details h4 {
+            margin: 10px 0;
+        }
+        .order-form input, .order-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .order-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #061309;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .order-form button:hover {
+            background-color: #040c06;
+        }
+        .response {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Online Book Store</h1>
+
+        <!-- Book List -->
+        <div class="book-list">
+            <div class="book-item" onclick="showDetails('book1')">
+                <img src="book1.jfif" alt="Book 1">
+                <div>
+                    <h3>Harry Potter</h3>
+                    <p>Harry Potter, an orphaned boy, discovers he is a wizard on his eleventh birthday and begins his magical education at Hogwarts.
+                        There, he uncovers secrets about his past and confronts a dark force threatening the wizarding world.</p>
+                    <p>Rating: ★★★★☆</p>
+                </div>
+            </div>
+            <div class="book-item" onclick="showDetails('book2')">
+                <img src="book2.jfif" alt="Book 2">
+                <div>
+                    <h3>The Unknown Mystry</h3>
+                    <p>A brilliant detective investigates a perplexing crime, unraveling clues and hidden motives as they navigate a web of secrets and deceit.
+                         With each twist, the mystery deepens, leading to a surprising revelation.</p>
+                    <p>Rating: ★★★☆☆</p>
+                </div>
+            </div>
+         
+        </div>
+
+        <div id="book1-details" class="book-details">
+            <h4>Book Title 1 - Details</h4>
+            <p>Detailed description of Book 1.</p>
+            <p>Topics: Topic 1, Topic 2, Topic 3</p>
+        </div>
+        <div id="book2-details" class="book-details">
+            <h4>Book Title 2 - Details</h4>
+            <p>Detailed description of Book 2.</p>
+            <p>Topics: Topic A, Topic B, Topic C</p>
+        </div>
+       
+        <div class="order-form">
+            <h2>Order Form</h2>
+            <form id="orderForm">
+                <label for="bookTitle">Book Title:</label>
+                <input type="text" id="bookTitle" name="bookTitle" required>
+
+                <label for="numberCopies">Number of Copies:</label>
+                <input type="number" id="numberCopies" name="numberCopies" min="1" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+
+                <label for="payment">Payment Details:</label>
+                <input type="text" id="payment" name="payment" required>
+
+                <button type="submit">Submit Order</button>
+            </form>
+            <div id="response" class="response"></div>
+        </div>
+    </div>
+
+   
+</body>
+</html>

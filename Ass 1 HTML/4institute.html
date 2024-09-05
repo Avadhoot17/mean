@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Institute Home Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #444;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #61421f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            background-color: #343a40;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            background-color: #495057;
+            border-radius: 5px;
+        }
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #e9ecef;
+            margin-bottom: 20px;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: block;
+            animation: slide 30s infinite;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h2 {
+            color: #7d868f;
+            border-bottom: 2px solid #080f16;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .course-details, .institute-details, .notices, .relevant-info, .testimonials, .gallery, .contact-info {
+            margin-bottom: 30px;
+        }
+        .course-details ul, .testimonials ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-details li, .testimonials li {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .course-details h3, .testimonials h3 {
+            margin-top: 0;
+            color: #343a40;
+        }
+        .course-card, .testimonial-card {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .course-card:hover, .testimonial-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .course-img, .testimonial-img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .gallery img {
+            width: calc(25% - 15px);
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover; /* Ensures proper aspect ratio and filling */
+        }
+        .contact-info p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fergusson College Pune</h1>
+    </header>
+    
+    <nav>
+        <a href="#institute-details">Institute Details</a>
+        <a href="#course-details">Course Details</a>
+        <a href="#notices">Notices and Circulars</a>
+        <a href="#relevant-info">Other Relevant Information</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact-info">Contact Information</a>
+    </nav>
+    
+    <div class="carousel">
+        <img src="img.jfif" alt="Highlight 1">
+        <img src="img2.jfif" alt="Highlight 2">
+        <img src="img3.jfif" alt="Highlight 3">
+        <img src="img4.jfif" alt="Highlight 4">
+    </div>
+
+    <div class="container">
+        <section id="institute-details" class="institute-details">
+            <h2>Institute Details</h2>
+            <p>Welcome to our prestigious educational institute. We offer a range of programs designed to help students achieve their academic and professional goals. Our campus is equipped with modern facilities and experienced faculty.</p>
+            <img src="book.jpg" alt="Books" class="institute-img">
+        </section>
+
+        <section id="course-details" class="course-details">
+            <h2>Course Details</h2>
+            <div class="course-card">
+                <h3>Computer Science</h3>
+                <p>Learn the fundamentals of programming, software development, and data analysis. This course provides a solid foundation in computer science.</p>
+                <p><strong>Intake:</strong> 50 students per year</p>
+                <p><strong>Fees:</strong> $5000 per year</p>
+                <p><strong>Eligibility:</strong> High School Diploma or equivalent</p>
+            </div>
+            <div class="course-card">
+                <h3>Electrical Engineering</h3>
+                <p>This course covers electrical systems, circuits, and electronics. Ideal for those interested in designing and working with electrical systems.</p>
+                <p><strong>Intake:</strong> 30 students per year</p>
+                <p><strong>Fees:</strong> $6000 per year</p>
+                <p><strong>Eligibility:</strong> High School Diploma with Physics and Mathematics</p>
+            </div>
+        </section>
+
+        <section id="notices" class="notices">
+            <h2>Notices and Circulars</h2>
+            <p>No new notices or circulars at the moment.</p>
+        </section>
+
+        <section id="relevant-info" class="relevant-info">
+            <h2>Other Relevant Information</h2>
+            <p>Our institute is committed to providing high-quality education and ensuring the best learning experience for our students. For more information about scholarships and financial aid, please contact our admissions office.</p>
+        </section>
+        
+        <section id="testimonials" class="testimonials">
+            <h2>What Our Students Say</h2>
+            <div class="testimonial-card">
+                <img src="https://via.placeholder.com/100" alt="Student 1" class="testimonial-img">
+                <p><strong>Jane Doe</strong></p>
+                <p>"The Computer Science program at this institute has been a game changer for me. The faculty are highly knowledgeable and the resources are top-notch."</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://via.placeholder.com/100" alt="Student 2" class="testimonial-img">
+                <p><strong>John Smith</strong></p>
+                <p>"I had a wonderful experience studying Electrical Engineering here. The hands-on labs and experienced professors made all the difference."</p>
+            </div>
+        </section>
+        
+        <section id="gallery" class="gallery">
+            <h2>Campus Gallery</h2>
+            <img src="clg4.jfif" alt="Campus Image 1">
+            <img src="clg3.jfif" alt="Campus Image 2">
+            <img src="clg1.jfif" alt="Campus Image 3">
+            <img src="clg.jfif" alt="Campus Image 4">
+        </section>
+        
+        <section id="contact-info" class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> 123 University Avenue, City, Country</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> info@institute.edu</p>
+            <p><strong>Office Hours:</strong> Monday - Friday, 9 AM - 5 PM</p>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Educational Institute. All rights reserved.</p>
+    </footer>
+</body>
+</html>
