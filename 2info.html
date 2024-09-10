@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Table</title>
+    <style>
+        /* Basic table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+
+        /* Highlight table rows on mouse over */
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Text alignment */
+        .name, .address {
+            text-align: center;
+        }
+        .percentage {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th class="name">Name</th>
+                <th class="address">Address</th>
+                <th class="percentage">Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="name">Avadhoot</td>
+                <td class="address">Wagholi</td>
+                <td class="percentage">85%</td>
+            </tr>
+            <tr>
+                <td class="name">Sagar</td>
+                <td class="address">Sangvi</td>
+                <td class="percentage">90%</td>
+            </tr>
+            <tr>
+                <td class="name">Chetan</td>
+                <td class="address">Dighi</td>
+                <td class="percentage">75%</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
