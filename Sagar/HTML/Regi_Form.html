@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #a540d7;
+            border-radius: 8px;
+            box-shadow: 0 0 15px;
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .btn {
+            background-color: #63229b;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+    
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form>
+            <div class="form-group">
+                <label for="Fname">Enter Full Name</label>
+                <input type="text" id="Fname" name="Fname" required>
+            </div>
+            <div class="form-group">
+                <label for="mail">Enter Mail Id</label>
+                <input type="email" id="mail" name="mail" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Enter Contact No</label>
+                <input type="tel" id="contact" name="contact"required>
+            </div>
+            <div class="form-group">
+                <label for="date">Enter Birth Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="Add">Enter Address</label>
+                <textarea id="Add" name="Add" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Select Position</label>
+                <input type="checkbox" id="student" name="position" value="Student">
+                <label for="student">Student</label>
+                <input type="checkbox" id="employee" name="position" value="Employee">
+                <label for="employee">Employee</label>
+            </div>
+            <div class="form-group">
+                <label for="Course">Select Course</label>
+                <select name="Course" id="Course" required>
+                    <option value="MCA">MCA</option>
+                    <option value="MCS">MCS</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="IMCA">IMCA</option>
+                </select>
+            </div>
+            <center><button type="submit" class="btn">Submit</button></center>
+        </form>
+    </div>
+</body>
+</html>
