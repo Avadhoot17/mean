@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Frame Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .top-section, .middle-section, .bottom-section {
+            display: flex;
+            width: 100%;
+        }
+        .top-section > div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: 200px; /* Adjust height as needed */
+        }
+        .top-section .left, .top-section .right {
+            flex: 1;
+        }
+        .middle-section {
+            flex: 1;
+            height: 300px; /* Adjust height as needed */
+            display: flex;
+        }
+        .middle-section .left {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .middle-section .right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .right-top, .right-bottom {
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        .right-top {
+            margin-bottom: 5px;
+        }
+        .right-bottom {
+            margin-top: 5px;
+        }
+        .bottom-section {
+            height: 200px; /* Adjust height as needed */
+        }
+        .scrolling-message {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .scrolling-message p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 10s linear infinite;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .bullet-list ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .links a {
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .rightside{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;   
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Section -->
+        <div class="top-section">
+            <div class="left">
+                <h1>Name</h1>
+                <p>Sagar More</p>
+            </div>
+            <div class="right">
+                <h2>Address</h2>
+                <p>123 Souyog Colony<br>New Sangvi, Pune</p>
+            </div>
+        </div>
+
+        <!-- Middle Section -->
+        <div class="middle-section">
+            <div class="left">
+                <h2>Qualifications</h2>
+                <ul class="bullet-list">
+                    <li>Bachelor's Degree in Computer Science</li>
+                    <li>5 years of experience in web development</li>
+                    <li>Proficient in HTML, CSS, JavaScript, and React</li>
+                    <li>Certified in Project Management</li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="rightside">
+                <div class="right-top scrolling-message">
+                    <h2>Scrolling Message</h2>
+                    <p>Welcome to my website! This is a scrolling message that runs continuously. Enjoy your visit!</p>
+                </div>
+                <div class="right-bottom links">
+                    <h2>Favorite Sites</h2>
+                    <a href="https://www.example.com" target="_blank">Example Site 1</a>
+                    <a href="https://www.example2.com" target="_blank">Example Site 2</a>
+                    <a href="https://www.example3.com" target="_blank">Example Site 3</a>
+                </div>
+            </div>
+                <div class="right-bottom">
+                    <h2>Image</h2>
+                    <img src="../clg1.jpg" alt="Placeholder Image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Additional content can be added here if needed -->
+        </div>
+    </div>
+</body>
+</html>

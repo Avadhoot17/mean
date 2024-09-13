@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Showcase</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            background-color: #f5f5f7;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            color: #333;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 1rem 1rem 6rem;
+            text-align: center;
+            position: relative;
+            margin-top: 4rem;
+        }
+
+        .hero::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Section Header Styles */
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Service and Product Cards */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .service {
+            flex: 1 1 calc(33.333% - 2rem);
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service img {
+            width: 100%;
+            height: 200px; /* Set height */
+            object-fit: cover; /* Ensure image covers the container */
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .service h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #fff;
+            border-top: 1px solid #e0e0e0;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .service {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pit Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#services">Products</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Pit Stop</h2>
+            <p>Experience the latest in technology with our cutting-edge products.</p>
+        </div>
+    </section>
+
+    <section id="services" class="container">
+        <h2>Services</h2>
+        <div class="services">
+            <div class="service">
+                <img src="service1.jpg" alt="iPhone 15 Pro Max">
+                <h3>iPhone 15 Pro Max</h3>
+                <p>The iPhone 15 Pro Max features a sleek titanium frame and a stunning 6.7-inch Super Retina XDR display with ProMotion technology.</p>
+            </div>
+            <div class="service">
+                <img src="service2.jpg" alt="iPad Pro">
+                <h3>iPad Pro</h3>
+                <p>The iPad Pro (10th generation) offers a vibrant 10.9-inch Liquid Retina display and the powerful A14 Bionic chip for top performance.</p>
+            </div>
+            <div class="service">
+                <img src="service3.jpg" alt="MacBook Pro">
+                <h3>MacBook Pro</h3>
+                <p>The MacBook Pro (14-inch, 2023) features a Liquid Retina XDR display and is powered by the M2 Pro chip, delivering exceptional performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container"></section>
+        <center><h2>Products</h2></center>
+        <div class="services">
+            <div class="service">
+                <img src="oilfilter.jpg" alt="iPhone 15 Pro Max">
+                <h3>Oil Filter</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur necessitatibus amet eveniet sint, praesentium quam, dolor ullam delectus ducimus odit, fugit voluptate dolore iste sunt nisi repellendus dignissimos inventore quaerat!</p>
+            </div>
+            <div class="service">
+                <img src="tyre.jpg" alt="iPad Pro">
+                <h3>Tyre</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque delectus ipsam consequatur itaque mollitia illo ut quas quos! Delectus pariatur odit animi doloribus similique amet alias quis nobis impedit maxime?</p>
+            </div>
+            <div class="service">
+                <img src="seatcover.jpeg" alt="MacBook Pro">
+                <h3>Seat Cover</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem modi, sapiente et aliquam dignissimos eius esse consectetur ullam incidunt odio saepe sequi similique praesentium maiores neque velit eveniet temporibus quae.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 This is page footers</p>
+        </div>
+    </footer>
+</body>
+</html>
