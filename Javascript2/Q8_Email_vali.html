@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b2bfcb;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: rgb(226, 215, 215);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgb(173 110 110 / 45%);
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #222a33;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #424e5a;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+        }
+        .valid {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .invalid {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Validator</h1>
+        <form id="emailForm">
+            <input type="email" id="emailInput" placeholder="Enter your email" required>
+            <button type="submit">Validate Email</button>
+        </form>
+        <div class="result" id="resultMessage"></div>
+    </div>
+
+    
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form submission
+            const emailInput = document.getElementById('emailInput').value;
+            const resultMessage = document.getElementById('resultMessage');
+
+            // Email validation regex
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Check if the email is valid
+            if (emailPattern.test(emailInput)) {
+                resultMessage.textContent = "Valid email address!";
+                resultMessage.className = "result valid";
+            } else {
+                resultMessage.textContent = "Invalid email address. Please try again.";
+                resultMessage.className = "result invalid";
+            }
+
+            resultMessage.style.display = "block"; // Show result message
+        });
+    </script>
+</body>
+</html>

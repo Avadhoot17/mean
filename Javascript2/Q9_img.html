@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Dimension Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #343a40;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #2f373f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #546272;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #e9ecef;
+            display: none; /* Initially hidden */
+        }
+        img {
+            max-width: 100%;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Dimension Finder</h1>
+        <input type="file" id="imageInput" accept="image/*" required>
+        <button id="getDimensions">Get Dimensions</button>
+        <div class="result" id="resultMessage"></div>
+        <img id="selectedImage" style="display:none;" alt="Selected Image">
+    </div>
+
+    <script>
+        document.getElementById('getDimensions').addEventListener('click', function() {
+            const imageInput = document.getElementById('imageInput');
+            const resultMessage = document.getElementById('resultMessage');
+            const selectedImage = document.getElementById('selectedImage');
+
+            // Clear previous result
+            resultMessage.style.display = 'none';
+            selectedImage.style.display = 'none';
+
+            if (imageInput.files && imageInput.files[0]) {
+                const img = new Image();
+                img.src = URL.createObjectURL(imageInput.files[0]);
+                
+                img.onload = function() {
+                    const dimensions = `Width: ${img.width}px, Height: ${img.height}px`;
+                    resultMessage.textContent = dimensions;
+                    resultMessage.style.display = 'block';
+                    
+                    // Display the selected image
+                    selectedImage.src = img.src;
+                    selectedImage.style.display = 'block';
+                };
+
+                img.onerror = function() {
+                    resultMessage.textContent = "Failed to load image.";
+                    resultMessage.style.display = 'block';
+                };
+            } else {
+                resultMessage.textContent = "Please select an image.";
+                resultMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

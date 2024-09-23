@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1e1e1e;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #2d2d2d;
+        }
+        h1 {
+            font-size: 22px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        input, button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            color: #e0e0e0;
+            background: #333;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+        input::placeholder, button {
+            color: #b0b0b0;
+        }
+        button {
+            background: #02060a;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #393b3d;
+        }
+        .result {
+            margin-top: 10px;
+            background: #3c3c3c;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Array Operations</h1>
+
+        <!-- Common Array Section -->
+        <div class="section">
+            <input type="text" class="common-array-input" placeholder="Enter array elements (comma separated)">
+            <div class="result common-array-result"></div>
+        </div>
+
+        <!-- Section A: Check if an Array contains a specified value -->
+        <div class="section">
+            <input type="text" class="value-a" placeholder="Enter value to check">
+            <button class="check-value-btn">Check Value</button>
+            <div class="result result-a"></div>
+        </div>
+
+        <!-- Section B: Insert item in an array -->
+        <div class="section">
+            <input type="text" class="item-b" placeholder="Enter item to insert">
+            <input type="number" class="index-b" placeholder="Enter index to insert at">
+            <button class="insert-item-btn">Insert Item</button>
+            <div class="result result-b"></div>
+        </div>
+
+        <!-- Section C: Append an object to the Common Array -->
+        <div class="section">
+            <input type="text" class="object-c" placeholder="Enter object (e.g., {name: 'John', age: 30})">
+            <button class="append-object-btn">Append Object</button>
+            <div class="result result-c"></div>
+        </div>
+
+        <!-- Section D: Check if an object is an Array -->
+        <div class="section">
+            <input type="text" class="object-d" placeholder="Enter object (e.g., [1, 2, 3] or {a: 1})">
+            <button class="check-if-array-btn">Check If Array</button>
+            <div class="result result-d"></div>
+        </div>
+
+        <!-- Section E: Empty the Common Array -->
+        <div class="section">
+            <button class="empty-array-btn">Empty Array</button>
+            <div class="result result-e"></div>
+        </div>
+
+        <!-- Section F: Add element to start of the Common Array -->
+        <div class="section">
+            <input type="text" class="element-f" placeholder="Enter element to add">
+            <button class="add-element-btn">Add Element</button>
+            <div class="result result-f"></div>
+        </div>
+
+        <!-- Section G: Remove duplicates from the Common Array -->
+        <div class="section">
+            <button class="remove-duplicates-btn">Remove Duplicates</button>
+            <div class="result result-g"></div>
+        </div>
+
+        <!-- Section H: Merge two arrays and remove duplicate items -->
+        <div class="section">
+            <input type="text" class="array-h1" placeholder="Enter first array (comma separated)">
+            <input type="text" class="array-h2" placeholder="Enter second array (comma separated)">
+            <button class="merge-arrays-btn">Merge Arrays</button>
+            <div class="result result-h"></div>
+        </div>
+
+        <!-- Section I: Sort an array of objects by property values -->
+        <div class="section">
+            <input type="text" class="array-i" placeholder="Enter array of objects (e.g., [{name: 'John', age: 30}, {name: 'Jane', age: 25}])">
+            <input type="text" class="property-i" placeholder="Enter property name to sort by">
+            <button class="sort-array-btn">Sort Array</button>
+            <div class="result result-i"></div>
+        </div>
+    </div>
+
+    <script>
+        let commonArray = [];
+
+        function updateCommonArray() {
+            const inputStr = document.querySelector('.common-array-input').value.trim();
+            commonArray = inputStr ? inputStr.split(',').map(item => item.trim()) : [];
+            displayCommonArray();
+        }
+
+        function displayCommonArray() {
+            const resultDiv = document.querySelector('.common-array-result');
+            resultDiv.innerHTML = `<p>Common Array: <pre>${JSON.stringify(commonArray, null, 2)}</pre></p>`;
+        }
+
+        document.querySelector('.common-array-input').addEventListener('input', updateCommonArray);
+
+        document.querySelector('.check-value-btn').addEventListener('click', () => {
+            const value = document.querySelector('.value-a').value.trim();
+            const resultDiv = document.querySelector('.result-a');
+
+            if (commonArray.includes(value)) {
+                resultDiv.innerHTML = `<p>Value "${value}" is in the array.</p>`;
+            } else {
+                resultDiv.innerHTML = `<p>Value "${value}" is not in the array.</p>`;
+            }
+        });
+
+        document.querySelector('.insert-item-btn').addEventListener('click', () => {
+            const item = document.querySelector('.item-b').value.trim();
+            const index = parseInt(document.querySelector('.index-b').value.trim(), 10);
+            const resultDiv = document.querySelector('.result-b');
+
+            if (index < 0 || index > commonArray.length) {
+                resultDiv.innerHTML = '<p>Index out of bounds.</p>';
+                return;
+            }
+
+            commonArray.splice(index, 0, item);
+            displayCommonArray();
+            resultDiv.innerHTML = `<p>Updated Array: <pre>${JSON.stringify(commonArray, null, 2)}</pre></p>`;
+        });
+
+        document.querySelector('.append-object-btn').addEventListener('click', () => {
+            const objectStr = document.querySelector('.object-c').value.trim();
+            const resultDiv = document.querySelector('.result-c');
+            let obj;
+
+            try {
+                obj = JSON.parse(objectStr);
+            } catch (e) {
+                resultDiv.innerHTML = '<p>Invalid object format.</p>';
+                return;
+            }
+
+            commonArray.push(obj);
+            displayCommonArray();
+            resultDiv.innerHTML = `<p>Updated Array: <pre>${JSON.stringify(commonArray, null, 2)}</pre></p>`;
+        });
+
+        document.querySelector('.empty-array-btn').addEventListener('click', () => {
+            commonArray = [];
+            displayCommonArray();
+            document.querySelector('.result-e').innerHTML = `<p>Array emptied. Result: <pre>${JSON.stringify(commonArray, null, 2)}</pre></p>`;
+        });
+
+        document.querySelector('.add-element-btn').addEventListener('click', () => {
+            const element = document.querySelector('.element-f').value.trim();
+            commonArray.unshift(element);
+            displayCommonArray();
+            document.querySelector('.result-f').innerHTML = `<p>Updated Array: <pre>${JSON.stringify(commonArray, null, 2)}</pre></p>`;
+        });
+
+        document.querySelector('.remove-duplicates-btn').addEventListener('click', () => {
+            commonArray = [...new Set(commonArray)];
+            displayCommonArray();
+            document.querySelector('.result-g').innerHTML = `<p>Array without duplicates: <pre>${JSON.stringify(commonArray, null, 2)}</pre></p>`;
+        });
+
+        document.querySelector('.merge-arrays-btn').addEventListener('click', () => {
+            const arrayStr1 = document.querySelector('.array-h1').value.trim();
+            const arrayStr2 = document.querySelector('.array-h2').value.trim();
+            const resultDiv = document.querySelector('.result-h');
+            const array1 = arrayStr1 ? arrayStr1.split(',').map(item => item.trim()) : [];
+            const array2 = arrayStr2 ? arrayStr2.split(',').map(item => item.trim()) : [];
+            const mergedArray = [...array1, ...array2];
+            const uniqueArray = [...new Set(mergedArray)];
+            
+            resultDiv.innerHTML = `<p>Merged Array without duplicates: <pre>${JSON.stringify(uniqueArray, null, 2)}</pre></p>`;
+        });
+
+        document.querySelector('.sort-array-btn').addEventListener('click', () => {
+            const arrayStr = document.querySelector('.array-i').value.trim();
+            const property = document.querySelector('.property-i').value.trim();
+            const resultDiv = document.querySelector('.result-i');
+            let array;
+
+            try {
+                array = JSON.parse(arrayStr);
+            } catch (e) {
+                resultDiv.innerHTML = '<p>Invalid array format.</p>';
+                return;
+            }
+
+            if (!Array.isArray(array) || array.some(item => typeof item !== 'object' || item === null)) {
+                resultDiv.innerHTML = '<p>Array must be an array of objects.</p>';
+                return;
+            }
+
+            array.sort((a, b) => {
+                if (a[property] < b[property]) return -1;
+                if (a[property] > b[property]) return 1;
+                return 0;
+            });
+
+            resultDiv.innerHTML = `<p>Sorted Array: <pre>${JSON.stringify(array, null, 2)}</pre></p>`;
+        });
+    </script>
+</body>
+</html>

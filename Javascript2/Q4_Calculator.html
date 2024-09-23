@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Function App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a2adb9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #343a40;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #374553;
+        }
+        .result {
+            margin-top: 10px;
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Function App</h1>
+
+        <!-- Even-Odd Number Series -->
+        <section>
+            <h2>Even-Odd Number Series</h2>
+            <form id="evenOddForm">
+                <input type="number" id="evenOddInput" placeholder="Enter a number" required>
+                <button type="submit">Find Even and Odd</button>
+            </form>
+            <div class="result" id="evenOddResult"></div>
+            <div class="result" id="evenResult"></div>
+            <div class="result" id="oddResult"></div>
+        </section>
+
+        <!-- Basic Calculator -->
+        <section>
+            <h2>Basic Calculator</h2>
+            <form id="calculatorForm">
+                <input type="number" id="num1" placeholder="First Number" required>
+                <input type="number" id="num2" placeholder="Second Number" required>
+                <select id="operation">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <button type="submit">Calculate</button>
+            </form>
+            <div class="result" id="calculatorResult"></div>
+        </section>
+
+        <!-- Character Replacement -->
+        <section>
+            <h2>Character Replacement</h2>
+            <form id="charReplaceForm">
+                <input type="text" id="inputString" placeholder="Enter a string" required>
+                <input type="text" id="charToReplace" placeholder="Character to replace" required maxlength="1">
+                <input type="text" id="replacementChar" placeholder="Replacement character" required maxlength="1">
+                <button type="submit">Replace Characters</button>
+            </form>
+            <div class="result" id="charReplaceResult"></div>
+        </section>
+
+        <!-- Sort Letters in Word -->
+        <section>
+            <h2>Sort Letters in a Word</h2>
+            <form id="sortLettersForm">
+                <input type="text" id="wordInput" placeholder="Enter a word" required>
+                <button type="submit">Sort Letters</button>
+            </form>
+            <div class="result" id="sortLettersResult"></div>
+        </section>
+    </div>
+
+    <script>
+        // Even-Odd Functionality
+        document.getElementById('evenOddForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const num = parseInt(document.getElementById('evenOddInput').value);
+            let evens = [], odds = [];
+            for (let i = 1; i <= num; i++) {
+                if (i % 2 === 0) evens.push(i);
+                else odds.push(i);
+            }
+            document.getElementById('evenOddResult').textContent = `Even and Odd numbers up to ${num}:`;
+            document.getElementById('evenResult').textContent = `Evens: ${evens.join(', ')}`;
+            document.getElementById('oddResult').textContent = `Odds: ${odds.join(', ')}`;
+        });
+
+        // Calculator Functionality
+        document.getElementById('calculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+            let result;
+            switch (operation) {
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/': result = num2 !== 0 ? num1 / num2 : 'Error: Division by zero'; break;
+            }
+            document.getElementById('calculatorResult').textContent = `Result: ${result}`;
+        });
+
+        // Character Replacement Functionality
+        document.getElementById('charReplaceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputString = document.getElementById('inputString').value;
+            const charToReplace = document.getElementById('charToReplace').value;
+            const replacementChar = document.getElementById('replacementChar').value;
+            const replacedString = inputString.split('').map(char => char === charToReplace ? replacementChar : char).join('');
+            document.getElementById('charReplaceResult').textContent = `Replaced String: ${replacedString}`;
+        });
+
+        // Sort Letters Functionality
+        document.getElementById('sortLettersForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const wordInput = document.getElementById('wordInput').value;
+            const sortedLetters = wordInput.split('').sort().join('');
+            document.getElementById('sortLettersResult').textContent = `Sorted Letters: ${sortedLetters}`;
+        });
+    </script>
+</body>
+</html>

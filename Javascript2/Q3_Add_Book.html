@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Address Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #1a2029;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #323236;
+        }
+
+        #contacts {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            transition: background 0.3s;
+        }
+
+        .contact-item:hover {
+            background: #e2e6ea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digital Address Book</h1>
+        <form id="addressForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="text" id="phone" placeholder="Phone Number (10 digits)" pattern="\d{10}" maxlength="10" required>
+            <button type="submit">Add Contact</button>
+        </form>
+
+        <div id="contactList">
+            <h2>Contacts</h2>
+            <ul id="contacts"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('addressForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+
+            if (phone.length !== 10) {
+                alert('Phone number must be exactly 10 digits.');
+                return;
+            }
+
+            const contactList = document.getElementById('contacts');
+            const contactItem = document.createElement('li');
+            contactItem.classList.add('contact-item');
+            contactItem.textContent = `Name: ${name}, Address: ${address}, Phone: ${phone}`;
+
+            contactList.appendChild(contactItem);
+
+            // Clear the input fields
+            document.getElementById('addressForm').reset();
+        });
+    </script>
+</body>
+</html>

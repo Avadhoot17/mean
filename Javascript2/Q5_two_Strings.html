@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple String Comparison</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgb(67 62 62 / 49%);
+            transition: box-shadow 0.1s ease, transform 0.1s ease;
+        }
+        .container:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+        }
+        h1 {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 17px;
+            cursor: pointer;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 24px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.02);
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .diff {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .unique {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple String Comparison Tool</h1>
+        <input type="text" id="string1" placeholder="Enter the first string">
+        <input type="text" id="string2" placeholder="Enter the second string">
+        <button onclick="compareStrings()">Compare</button>
+        <div class="result" id="result"></div>
+    </div>
+    
+    <script>
+        function compareStrings() {
+            const str1 = document.getElementById('string1').value.trim();
+            const str2 = document.getElementById('string2').value.trim();
+            const resultDiv = document.getElementById('result');
+
+            if (str1 === '' || str2 === '') {
+                resultDiv.innerHTML = '<p class="diff">Please enter values in both input fields.</p>';
+                return;
+            }
+
+            let resultHTML = '';
+
+            // Compare lengths
+            if (str1.length === str2.length) {
+                resultHTML += '<p>The strings have the same length.</p>';
+            } else {
+                resultHTML += `<p>The strings have different lengths: ${str1.length} vs ${str2.length}.</p>`;
+            }
+
+            // Compare content
+            let commonContent = '';
+            let uniqueToStr1 = '';
+            let uniqueToStr2 = '';
+            const minLength = Math.min(str1.length, str2.length);
+
+            // Common content and unique characters
+            for (let i = 0; i < minLength; i++) {
+                if (str1[i] === str2[i]) {
+                    commonContent += str1[i];
+                } else {
+                    uniqueToStr1 += str1[i];
+                    uniqueToStr2 += str2[i];
+                }
+            }
+
+            // Add remaining characters
+            if (str1.length > minLength) {
+                uniqueToStr1 += str1.slice(minLength);
+            }
+            if (str2.length > minLength) {
+                uniqueToStr2 += str2.slice(minLength);
+            }
+
+            // Display results
+            resultHTML += `<p>Common content: ${commonContent || 'None'}</p>`;
+            resultHTML += `<p>Unique to the first string: <span class="unique">${uniqueToStr1 || 'None'}</span></p>`;
+            resultHTML += `<p>Unique to the second string: <span class="unique">${uniqueToStr2 || 'None'}</span></p>`;
+
+            resultDiv.innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>
