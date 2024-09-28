@@ -2,11 +2,11 @@ from datetime import datetime
 
 # Sample book data with titles, authors, and checkout status
 library_books = [
-    {"title": "Harry Potter and the Sorcerer's Stone", "author": "J.K. Rowling", "checked_out": True, "due_date": "2024-09-15"},
-    {"title": "The Hobbit", "author": "J.R.R. Tolkien", "checked_out": False, "due_date": None},
-    {"title": "The Da Vinci Code", "author": "Dan Brown", "checked_out": True, "due_date": "2024-08-20"},
-    {"title": "The Alchemist", "author": "Paulo Coelho", "checked_out": False, "due_date": None},
-    {"title": "And Then There Were None", "author": "Agatha Christie", "checked_out": True, "due_date": "2024-09-01"},
+    {"title": "Harry Potter and the Sorcerer's Stone", "author": "J.K. Rowling", "checked_out":    True, "due_date":  "2024-09-15"},
+    {"title": "The Hobbit", "author":                            "J.R.R. Tolkien", "checked_out":  False, "due_date":  None},
+    {"title": "The Da Vinci Code", "author":                     "Dan Brown", "checked_out":       True, "due_date":   "2024-08-20"},
+    {"title": "The Alchemist", "author":                         "Paulo Coelho", "checked_out":    False, "due_date":  None},
+    {"title": "And Then There Were None", "author":              "Agatha Christie", "checked_out": True, "due_date":   "2024-09-01"},
 ]
 
 # Function to calculate the total number of books
