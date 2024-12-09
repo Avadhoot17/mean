@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table with Split Address Column</title>
+  <style>
+    table {
+      width: 50%;
+      height: 10%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+    }
+    th {
+      background-color: #ddd;
+    }
+    tr:hover {
+      background-color: #f2f2f2; /* Highlight row on mouse hover */
+    }
+    td.name, td.address-part {
+      text-align: center; /* Center align for name and address parts */
+    }
+    td.percentage {
+      text-align: right; /* Right align for percentage column */
+    }
+    td.address-part {
+      border-top: none; /* Removes top border between split rows */
+    }
+  </style>
+</head>
+<body>
+<center>
+  <table>
+    <tr>
+      <th class="name">Name</th>
+      <th class="address" colspan="2"></th>
+      <th class="percentage">Percentage</th>
+    </tr>
+    <tr>
+      <td class="name"></td>
+      <td class="address-part" colspan="2">Address</td>
+      <td class="percentage"></td>
+    </tr>
+    <tr>
+      <td class="name"></td>
+      <td class="address-part"></td>
+      <td class="address-part"></td>
+      <td class="percentage"></td>
+    </tr>
+    <tr>
+      <td class="name"></td>
+      <td class="address-part"></td>
+      <td class="address-part"></td>
+      <td class="percentage"></td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>
