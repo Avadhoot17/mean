@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Hyperlinks</title>
+    <style>
+        /* Unvisited link */
+        a:link {
+            color: rgb(206, 29, 29); /* Red color for unvisited links */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Visited link */
+        a:visited {
+            color: green; /* Green color for visited links */
+        }
+
+        /* Mouse over link */
+        a:hover {
+            color: pink; /* Pink color for links on mouse over */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        /* Selected (active) link */
+        a:active {
+            color: blue; /* Blue color for links when clicked */
+        }
+    </style>
+</head>
+<body>
+    <h1>Styled Hyperlinks</h1>
+    <p>
+        <a href="https://www.github.com" target="_blank">GitHub</a><br>
+        <a href="https://www.fergusson.edu/" target="_blank">Fergusson College Pune</a><br>
+        <a href="https://www.youtube.com" target="_blank">YouTube</a><br>
+        <a href="https://www.geeksforgeeks.org/" target="_blank">GeeksforGeeks</a>
+    </p>
+</body>
+</html>
