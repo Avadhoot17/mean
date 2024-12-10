@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize First Letter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Capitalize First Letter</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="capitalizeFirstLetter()">Capitalize</button>
+
+    <div class="output" id="output"></div>
+</div>
+
+<script>
+    function capitalizeFirstLetter() {
+        // Get the input value
+        let name = document.getElementById('nameInput').value;
+        
+        // Capitalize the first letter and make the rest lowercase
+        if (name) {
+            let capitalized = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+            // Display the result
+            document.getElementById('output').textContent = "Capitalized Name: " + capitalized;
+        } else {
+            document.getElementById('output').textContent = "Please enter a name!";
+        }
+    }
+</script>
+
+</body>
+</html>
